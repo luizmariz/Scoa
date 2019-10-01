@@ -7,5 +7,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX12"/>
+	<classpathentry kind="lib" path="C:/Users/Guest/Downloads/jfoenix-9.0.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Guest/Downloads/ikonli-javafx-11.3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Guest/Downloads/ikonli-fontawesome5-pack-11.3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Guest/Downloads/ikonli-fontawesome-pack-11.3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Guest/Downloads/ikonli-core-11.3.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

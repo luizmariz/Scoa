@@ -1,15 +1,18 @@
 package application;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class Controller {
 	@FXML
-    private Label label;
-
-    public void initialize() {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        label.setText("Hello, JavaFX " + javafxVersion + "\nRunning on Java " + javaVersion + ".");
-    }
+	public void handleCloseButtonAction(ActionEvent event) {
+	    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+	}
+	
+	@FXML
+	public void handleMinimizeButtonAction(ActionEvent event) {
+	    ((Stage)(((Button)event.getSource()).getScene().getWindow())).setIconified(true);
+	}
 }
