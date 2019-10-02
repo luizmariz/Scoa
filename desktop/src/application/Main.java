@@ -16,7 +16,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("cadastro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
         stage.initStyle(StageStyle.TRANSPARENT);
         //stage.initStyle(StageStyle.UNDERDECORATED);
        
