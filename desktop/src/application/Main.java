@@ -1,5 +1,5 @@
 package application;
-	
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +13,13 @@ public class Main extends Application {
 
 	private double xOffset = 0;
     private double yOffset = 0;
-    
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
         stage.initStyle(StageStyle.TRANSPARENT);
         //stage.initStyle(StageStyle.UNDERDECORATED);
-       
+
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
         	@Override
         	public void handle(MouseEvent event) {
@@ -27,7 +27,7 @@ public class Main extends Application {
         		yOffset = event.getSceneY();
         	}
         });
-        
+
         //move around here
         root.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
@@ -36,9 +36,9 @@ public class Main extends Application {
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-       
+
         Scene scene = new Scene(root);
-        stage.setScene(scene);   
+        stage.setScene(scene);
 
         stage.show();
     }
