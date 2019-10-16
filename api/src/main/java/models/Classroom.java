@@ -11,15 +11,12 @@ import javax.validation.constraints.NotBlank;
 public class Classroom {
 	
 	@Id
-	@Column(name="idSala")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSala;
 	
-	@Column(name="local")
 	@NotBlank
 	private String local;
 	
-	@Column(name="capacidade")
 	@NotBlank
 	private int capacidade;
 	
