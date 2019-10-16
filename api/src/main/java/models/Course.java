@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +11,18 @@ import javax.validation.constraints.NotBlank;
 public class Course {
 	
 	@Id
+	@Column(name="idCurso")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCurso;
 	
+	@Column(name="nome")
 	@NotBlank
 	private String nome;
+		
+	public Course(Long idCurso, String nome){
+		this.idCurso = idCurso;
+		this.nome = nome;
+	}
 	
 	
 	public String getNome() {

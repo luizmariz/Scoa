@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,38 +8,42 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class User {
+public abstract class User {
 		
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUser;
 	
+	@Column(name="nome")
 	@NotBlank
 	private String nome;
 	
+	@Column(name="cpf")
 	@NotBlank
 	private String cpf;
 	
+	@Column(name="email")
 	@NotBlank
 	private String email;
 	
+	@Column(name="senha")
 	@NotBlank
 	private String senha;
 	
+	@Column(name="tipoUser")
 	@NotBlank
-	private String tipoUsuario;
+	private String tipoUser;
 	
+	public User(String nome, String cpf, String email, String senha, String tipoUser){
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.senha = senha;
+		this.tipoUser = tipoUser;
+	}
 	public Long getIdUser() {
 		return idUser;
-	}
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
-	}
-	public String getTipoUsuario() {
-		return tipoUsuario;
-	}
-	public void setTipoUsuario(String tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
 	}
 	public String getNome() {
 		return nome;
@@ -63,6 +68,12 @@ public class User {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getTipoUser() {
+		return tipoUser;
+	}
+	public void setTipoUser(String tipoUser) {
+		this.tipoUser = tipoUser;
 	}
 
 }
