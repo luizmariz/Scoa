@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,15 +11,23 @@ import javax.validation.constraints.NotBlank;
 public class Classroom {
 	
 	@Id
+	@Column(name="idSala")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSala;
 	
+	@Column(name="local")
 	@NotBlank
 	private String local;
 	
+	@Column(name="capacidade")
 	@NotBlank
 	private int capacidade;
 	
+	public Classroom(Long idSala, String local, int capacidade){
+		this.idSala = idSala;
+		this.local = local;
+		this.capacidade = capacidade;
+	}
 	
 	public Long getIdSala() {
 		return idSala;
