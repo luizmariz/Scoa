@@ -4,7 +4,6 @@ import javax.persistence.Column;
 
 public class Professor extends User {
 
-	@Column(name="areaAtuacao")
 	private String areaAtuacao;
 	
 	private String formacao;

@@ -1,6 +1,5 @@
 package models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,27 +10,21 @@ import javax.validation.constraints.NotBlank;
 public abstract class User {
 		
 	@Id
-	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUser;
 	
-	@Column(name="nome")
 	@NotBlank
 	private String nome;
 	
-	@Column(name="cpf")
 	@NotBlank
 	private String cpf;
 	
-	@Column(name="email")
 	@NotBlank
 	private String email;
 	
-	@Column(name="senha")
 	@NotBlank
 	private String senha;
 	
-	@Column(name="tipoUser")
 	@NotBlank
 	private String tipoUser;
 	

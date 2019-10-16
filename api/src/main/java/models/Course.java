@@ -11,11 +11,9 @@ import javax.validation.constraints.NotBlank;
 public class Course {
 	
 	@Id
-	@Column(name="idCurso")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCurso;
 	
-	@Column(name="nome")
 	@NotBlank
 	private String nome;
 		

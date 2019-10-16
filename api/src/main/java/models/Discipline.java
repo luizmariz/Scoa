@@ -11,19 +11,15 @@ import javax.validation.constraints.NotBlank;
 public class Discipline {
 	
 	@Id
-	@Column(name="codigo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@Column(name="nome")
 	@NotBlank
 	private String nome;
 	
-	@Column(name="creditos")
 	@NotBlank
 	private int creditos;
 	
-	@Column(name="cargaHoraria")
 	@NotBlank
 	private int cargaHoraria;
 	

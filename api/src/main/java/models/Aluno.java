@@ -6,7 +6,6 @@ import javax.persistence.Id;
 public class Aluno extends User {
 
 	@Id
-	@Column(name="matricula")
 	private Long matricula;
 
 	public Aluno(String nome, String cpf, String email, String senha, String tipoUsuario, Long matricula) {
