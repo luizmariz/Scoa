@@ -1,6 +1,5 @@
 package com.fesg3.server.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +13,18 @@ public class Classroom {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSala;
 	
+	private Long adminId;
+	
 	@NotBlank
 	private String local;
 	
-	@NotBlank
-	private int capacidade;
+	private Long capacidade;
 	
-	public Classroom(Long idSala, String local, int capacidade){
-		this.idSala = idSala;
+	public Classroom() {
+	}
+	
+	public Classroom(String local, Long capacidade, Long adminId){
+		this.adminId = adminId;
 		this.local = local;
 		this.capacidade = capacidade;
 	}
@@ -38,11 +41,17 @@ public class Classroom {
 	public void setLocal(String local) {
 		this.local = local;
 	}
-	public int getCapacidade() {
+	public Long getCapacidade() {
 		return capacidade;
 	}
-	public void setCapacidade(int capacidade) {
+	public void setCapacidade(Long capacidade) {
 		this.capacidade = capacidade;
+	}
+	public Long getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(Long adminId) {
+		this.adminId = adminId;
 	}
 	
 }

@@ -1,6 +1,5 @@
 package com.fesg3.server.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,14 +16,14 @@ public class Discipline {
 	@NotBlank
 	private String nome;
 	
-	@NotBlank
-	private int creditos;
+	private Long creditos;
 	
-	@NotBlank
-	private int cargaHoraria;
+	private Long cargaHoraria;
 	
-	public Discipline(Long codigo, String nome, int creditos, int cargaHoraria){
-		this.codigo = codigo;
+	public Discipline() {
+	}
+	
+	public Discipline(String nome, Long creditos, Long cargaHoraria){
 		this.nome = nome;
 		this.creditos = creditos;
 		this.cargaHoraria = cargaHoraria;
@@ -42,16 +41,16 @@ public class Discipline {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public int getCreditos() {
+	public Long getCreditos() {
 		return creditos;
 	}
-	public void setCreditos(int creditos) {
+	public void setCreditos(Long creditos) {
 		this.creditos = creditos;
 	}
-	public int getCargaHoraria() {
+	public Long getCargaHoraria() {
 		return cargaHoraria;
 	}
-	public void setCargaHoraria(int cargaHoraria) {
+	public void setCargaHoraria(Long cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
 	

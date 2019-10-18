@@ -16,12 +16,14 @@ public class Course {
 	
 	@NotBlank
 	private String nome;
-		
+	
+	public Course() {		
+	}
+	
 	public Course(Long idCurso, String nome){
 		this.idCurso = idCurso;
 		this.nome = nome;
 	}
-	
 	
 	public String getNome() {
 		return nome;
