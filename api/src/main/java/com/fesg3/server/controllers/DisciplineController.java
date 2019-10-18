@@ -30,9 +30,9 @@ public class DisciplineController {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{codigo}"})
-	public ResponseEntity findById(@PathVariable Long codigo){
-	   return repository.findById(codigo)
+	@GetMapping(path = {"/{idDiscipline}"})
+	public ResponseEntity findById(@PathVariable Long idDiscipline){
+	   return repository.findById(idDiscipline)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
@@ -42,24 +42,27 @@ public class DisciplineController {
 	   return repository.save(discipline);
 	}
 	
-	@PutMapping(value="/{codigo}")
-	public ResponseEntity update(@PathVariable("codigo") Long codigo,
+	@PutMapping(value="/{idDiscipline}")
+	public ResponseEntity update(@PathVariable("idDiscipline") Long idDiscipline,
 	                                      @RequestBody Discipline discipline) {
-	   return repository.findById(codigo)
+	   return repository.findById(idDiscipline)
 	           .map(record -> {
 	               record.setNome(discipline.getNome());
+	               record.setAdminId(discipline.getAdminId());
+	               record.setCodigo(discipline.getCodigo());
 	               record.setCreditos(discipline.getCreditos());
 	               record.setCargaHoraria(discipline.getCargaHoraria());
+	               record.setEmenta(discipline.getEmenta());
 	               Discipline updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{codigo}"})
-	public ResponseEntity<?> delete(@PathVariable Long codigo) {
-	   return repository.findById(codigo)
+	@DeleteMapping(path ={"/{idDiscipline}"})
+	public ResponseEntity<?> delete(@PathVariable Long idDiscipline) {
+	   return repository.findById(idDiscipline)
 	           .map(record -> {
-	               repository.deleteById(codigo);
+	               repository.deleteById(idDiscipline);
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}

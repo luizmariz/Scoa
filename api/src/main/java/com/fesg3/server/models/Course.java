@@ -1,6 +1,5 @@
 package com.fesg3.server.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +15,8 @@ public class Course {
 	
 	@NotBlank
 	private String nome;
+	
+	private Long adminId;
 	
 	public Course() {		
 	}
@@ -36,6 +37,12 @@ public class Course {
 	}
 	public void setIdCurso(Long idCurso) {
 		this.idCurso = idCurso;
+	}
+	public Long getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(Long adminId) {
+		this.adminId = adminId;
 	}
 	
 }

@@ -47,6 +47,7 @@ public class ClassroomController {
 	                                      @RequestBody Classroom classroom) {
 	   return repository.findById(idSala)
 	           .map(record -> {
+	        	   record.setAdminId(classroom.getAdminId());
 	               record.setLocal(classroom.getLocal());
 	               record.setCapacidade(classroom.getCapacidade());
 	               Classroom updated = repository.save(record);
