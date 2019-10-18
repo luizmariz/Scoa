@@ -1,4 +1,4 @@
-package controllers;
+package com.fesg3.server.controllers;
 
 import java.util.List;
 
@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import models.Classroom;
-import models.User;
-import repositories.ClassroomRepository;
+import com.fesg3.server.models.Classroom;
+import com.fesg3.server.repositories.ClassroomRepository;
 
 @RestController
 @RequestMapping({"/classroom"})

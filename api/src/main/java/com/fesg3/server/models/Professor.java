@@ -1,4 +1,4 @@
-package models;
+package com.fesg3.server.models;
 
 import javax.persistence.Column;
 

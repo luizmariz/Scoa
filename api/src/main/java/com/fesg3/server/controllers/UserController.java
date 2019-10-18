@@ -1,4 +1,4 @@
-package controllers;
+package com.fesg3.server.controllers;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import models.User;
-import repositories.UserRepository;
+import com.fesg3.server.models.User;
+import com.fesg3.server.repositories.UserRepository;
 
 @RestController
 @RequestMapping({"/user"})
@@ -42,7 +42,7 @@ public class UserController {
 	   return repository.save(user);
 	}
 	
-	@PutMapping(value="/{idUser}")
+	@PutMapping(path="/{idUser}")
 	public ResponseEntity update(@PathVariable("idUser") Long idUser,
 	                                      @RequestBody User user) {
 	   return repository.findById(idUser)

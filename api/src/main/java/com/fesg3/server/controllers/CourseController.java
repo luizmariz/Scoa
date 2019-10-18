@@ -1,4 +1,4 @@
-package controllers;
+package com.fesg3.server.controllers;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import models.Course;
-import repositories.CourseRepository;
+import com.fesg3.server.models.Course;
+import com.fesg3.server.repositories.CourseRepository;
 
 @RestController
 @RequestMapping({"/course"})

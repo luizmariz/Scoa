@@ -1,13 +1,12 @@
-package services;
+package com.fesg3.server.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import models.User;
-import repositories.UserRepository;
-
+import com.fesg3.server.models.User;
+import com.fesg3.server.repositories.UserRepository;
 
 @Service
 public class UserService {
