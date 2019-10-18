@@ -1,4 +1,4 @@
-package models;
+package com.fesg3.server.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public abstract class User {
+public class User {
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,9 @@ public abstract class User {
 	
 	@NotBlank
 	private String tipoUser;
+	
+	public User() {	
+	}
 	
 	public User(String nome, String cpf, String email, String senha, String tipoUser){
 		this.nome = nome;

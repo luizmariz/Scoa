@@ -1,12 +1,12 @@
-package services;
+package com.fesg3.server.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import models.Course;
-import repositories.CourseRepository;
+import com.fesg3.server.models.Course;
+import com.fesg3.server.repositories.CourseRepository;
 
 
 @Service

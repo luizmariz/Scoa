@@ -1,13 +1,13 @@
-package services;
+package com.fesg3.server.services;
 
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import models.Discipline;
-import repositories.DisciplineRepository;
-
+import com.fesg3.server.models.Discipline;
+import com.fesg3.server.repositories.DisciplineRepository;
 
 @Service
 public class DisciplineService {
