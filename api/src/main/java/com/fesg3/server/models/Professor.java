@@ -1,15 +1,19 @@
 package com.fesg3.server.models;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
 
+@Entity
 public class Professor extends User {
 
 	private String areaAtuacao;
 	
 	private String formacao;
 	
-	public Professor(String nome, String cpf, String email, String senha, String tipoUser, String areaAtuacao, String formacao) {
-		super(nome, cpf, email, senha, tipoUser);
+	public Professor() {
+	}
+	
+	public Professor(String nome, String cpf, String email, String senha, String areaAtuacao, String formacao) {
+		super(nome, cpf, email, senha);
 		this.areaAtuacao = areaAtuacao;
 		this.formacao = formacao;
 	}
