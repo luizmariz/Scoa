@@ -4,13 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class User {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class User{
 		
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long idUser;
 	
 	@NotBlank
@@ -25,18 +28,14 @@ public class User {
 	@NotBlank
 	private String senha;
 	
-	@NotBlank
-	private String tipoUser;
-	
 	public User() {	
 	}
 	
-	public User(String nome, String cpf, String email, String senha, String tipoUser){
+	public User(String nome, String cpf, String email, String senha){
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 		this.senha = senha;
-		this.tipoUser = tipoUser;
 	}
 	public Long getIdUser() {
 		return idUser;
@@ -65,11 +64,4 @@ public class User {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getTipoUser() {
-		return tipoUser;
-	}
-	public void setTipoUser(String tipoUser) {
-		this.tipoUser = tipoUser;
-	}
-
 }

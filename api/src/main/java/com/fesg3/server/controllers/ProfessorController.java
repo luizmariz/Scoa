@@ -12,53 +12,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fesg3.server.models.User;
-import com.fesg3.server.repositories.UserRepository;
+import com.fesg3.server.models.Professor;
+import com.fesg3.server.repositories.ProfessorRepository;
 
 @RestController
-@RequestMapping({"/user"})
-public class UserController {
+@RequestMapping({"/professor"})
+public class ProfessorController {
 	
-	private UserRepository repository;
+	private ProfessorRepository repository;
 	
-	UserController(UserRepository userRepository) {
-		this.repository = userRepository;
+	ProfessorController(ProfessorRepository ProfessorRepository) {
+		this.repository = ProfessorRepository;
 	}
 	
 	@GetMapping
-	public List findAll() {
+	public List<?> findAll() {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{idUser}"})
-	public ResponseEntity findById(@PathVariable Long idUser){
+	@GetMapping(path = {"/{idProfessor}"})
+	public ResponseEntity<?> findById(@PathVariable Long idUser){
 	   return repository.findById(idUser)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
 	
 	@PostMapping
-	public User create(@RequestBody User user){
-	   return repository.save(user);
+	public Professor create(@RequestBody Professor Professor){
+	   return repository.save(Professor);
 	}
 	
-	@PutMapping(path="/{idUser}")
-	public ResponseEntity update(@PathVariable("idUser") Long idUser,
-	                                      @RequestBody User user) {
+	@PutMapping(path="/{idProfessor}")
+	public ResponseEntity<Professor> update(@PathVariable("idProfessor") Long idUser,
+	                                      @RequestBody Professor Professor) {
 	   return repository.findById(idUser)
 	           .map(record -> {
-	               record.setNome(user.getNome());
-	               record.setCpf(user.getCpf());
-	               record.setEmail(user.getEmail());
-	               record.setSenha(user.getSenha());
-	               record.setTipoUser(user.getTipoUser());
-	               User updated = repository.save(record);
+	               record.setNome(Professor.getNome());
+	               record.setCpf(Professor.getCpf());
+	               record.setEmail(Professor.getEmail());
+	               record.setSenha(Professor.getSenha());
+	               record.setAreaAtuacao(Professor.getAreaAtuacao());
+	               record.setFormacao(Professor.getFormacao());
+	               Professor updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{idUser}"})
-	public ResponseEntity<?> delete(@PathVariable Long idUser) {
+	@DeleteMapping(path ={"/{idProfessor}"})
+	public ResponseEntity<?> delete(@PathVariable("idProfessor") Long idUser) {
 	   return repository.findById(idUser)
 	           .map(record -> {
 	               repository.deleteById(idUser);

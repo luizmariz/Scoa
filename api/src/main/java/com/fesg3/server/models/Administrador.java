@@ -1,9 +1,15 @@
 package com.fesg3.server.models;
 
-public class Administrador extends User{
+import javax.persistence.Entity;
 
-	public Administrador(String nome, String cpf, String email, String senha, String tipoUser) {
-		super(nome, cpf, email, senha, tipoUser);
+@Entity
+public class Administrador extends User{
+	
+	public Administrador() {
+	}
+
+	public Administrador(String nome, String cpf, String email, String senha) {
+		super(nome, cpf, email, senha);
 	}
 	
 }
