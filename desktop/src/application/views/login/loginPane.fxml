@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="application.views.login.LoginPane" prefHeight="630.0" prefWidth="1080.0" style="-fx-background-color: white;">
+    <children>
+        <Text fill="#333333" layoutX="117.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scoa" wrappingWidth="170.0">
+            <font>
+                <Font size="70.0" />
+            </font>
+        </Text>
+        <Text fill="#333333" layoutX="117.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" wrappingWidth="170.0">
+            <font>
+                <Font name="Open Sans" size="14.0" />
+            </font>
+        </Text>
+        <TextField fx:id="loginCpfField" layoutX="117.0" layoutY="306.0" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: #f2d9ff;">
+            <font>
+                <Font name="Open Sans" size="14.0" />
+            </font>
+        </TextField>
+        <Text fill="#333333" layoutX="117.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" wrappingWidth="170.0">
+            <font>
+                <Font name="Open Sans" size="14.0" />
+            </font>
+        </Text>
+        <JFXButton fx:id="loginBtn" layoutX="117.0" layoutY="480.0" onAction="#handleLogin" prefHeight="39.0" prefWidth="123.0" ripplerFill="#4d4d4d00" style="-fx-background-color: #9e549b;" text="LOGIN" textFill="WHITE">
+            <font>
+                <Font name="Open Sans Semibold" size="14.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+        <PasswordField fx:id="loginPasswordField" layoutX="117.0" layoutY="381.0" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: #f2d9ff;">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </PasswordField>
+    </children>
+</Pane>

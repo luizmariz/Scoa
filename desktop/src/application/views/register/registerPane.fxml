@@ -7,14 +7,13 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<Pane fx:id="registerPane" layoutX="-9.0" layoutY="-9.0" fx:controller="application.components.RegisterPane">
+<Pane fx:id="registerPane" layoutX="-9.0" layoutY="-9.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.views.register.RegisterPane">
     <children>
         <AnchorPane layoutX="255.0" layoutY="64.0" prefHeight="575.0" prefWidth="835.0">
             <children>
@@ -270,12 +269,12 @@
         <AnchorPane layoutX="9.0" layoutY="9.0" prefHeight="630.0" prefWidth="252.0" style="-fx-background-color: #F2D9FF;">
             <children>
                 <AnchorPane prefHeight="630.0" prefWidth="54.0" style="-fx-background-color: #FFFFFF;" />
-                <Text fill="#333333" layoutX="74.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro" wrappingWidth="170.0" AnchorPane.leftAnchor="74.0">
+                <Text fill="#333333" layoutX="74.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro" wrappingWidth="170.0" AnchorPane.leftAnchor="74.0">
                     <font>
-                        <Font name="Open Sans" size="36.0" />
+                        <Font size="32.0" />
                     </font>
                 </Text>
-                <JFXButton fx:id="userBtn" alignment="BASELINE_LEFT" layoutY="201.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="USUÁRIO">
+                <JFXButton fx:id="userBtn" alignment="BASELINE_LEFT" layoutY="219.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="USUÁRIO">
                     <font>
                         <Font name="Open Sans" size="12.0" />
                     </font>
@@ -289,7 +288,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="classBtn" alignment="BASELINE_LEFT" layoutY="258.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="DISCIPLINA">
+                <JFXButton fx:id="classBtn" alignment="BASELINE_LEFT" layoutY="276.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="DISCIPLINA">
                     <font>
                         <Font name="Open Sans" size="12.0" />
                     </font>
@@ -303,7 +302,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="roomBtn" alignment="BASELINE_LEFT" layoutY="315.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="SALA">
+                <JFXButton fx:id="roomBtn" alignment="BASELINE_LEFT" layoutY="333.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="SALA">
                     <font>
                         <Font name="Open Sans" size="12.0" />
                     </font>
@@ -317,7 +316,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="courseBtn" alignment="BASELINE_LEFT" layoutY="372.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="CURSO">
+                <JFXButton fx:id="courseBtn" alignment="BASELINE_LEFT" layoutY="390.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="CURSO">
                     <padding>
                         <Insets left="15.0" />
                     </padding>
@@ -328,24 +327,10 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="signOutBtn" alignment="BASELINE_LEFT" layoutY="573.0" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text="SAIR">
-                    <padding>
-                        <Insets left="15.0" />
-                    </padding>
-                    <graphic>
-                        <FontIcon fill="#9e549b" iconLiteral="fas-sign-out-alt" iconSize="20" text="" wrappingWidth="55.0" />
-                    </graphic>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </JFXButton>
                 <JFXButton fx:id="userBtn1" alignment="BASELINE_LEFT" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text=" ">
                     <font>
                         <Font name="Open Sans" size="12.0" />
                     </font>
-                    <graphic>
-                        <FontIcon fx:id="backBtn" fill="#9e549b" iconLiteral="fa-arrow-left" iconSize="20" text="" wrappingWidth="50.0" />
-                    </graphic>
                     <padding>
                         <Insets left="15.0" />
                     </padding>
@@ -353,35 +338,17 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-            </children>
-            <effect>
-                <DropShadow />
-            </effect>
-        </AnchorPane>
-        <AnchorPane layoutX="255.0" layoutY="9.0" prefHeight="57.0" prefWidth="835.0">
-            <children>
-                <JFXButton contentDisplay="CENTER" ellipsisString="" layoutX="791.0" layoutY="18.0" onAction="#handleCloseButtonAction" textFill="TRANSPARENT" textOverrun="CLIP">
-                    <graphic>
-                        <FontIcon id="btn_window_close" fill="#9e549b" iconLiteral="far-window-close" iconSize="17" />
-                    </graphic>
-                    <font>
-                        <Font size="1.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </JFXButton>
-                <JFXButton contentDisplay="CENTER" ellipsisString="" layoutX="751.0" layoutY="18.0" onAction="#handleMinimizeButtonAction" textFill="TRANSPARENT" textOverrun="CLIP">
-                    <font>
-                        <Font size="1.0" />
-                    </font>
-                    <graphic>
-                        <FontIcon id="btn_window_minimize" fill="#9e549b" iconLiteral="far-window-minimize" iconSize="17" />
-                    </graphic>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </JFXButton>
+            <JFXButton fx:id="classBtn1" alignment="BASELINE_LEFT" onAction="#handleRegisterPane" prefHeight="57.0" prefWidth="252.0" text=" ">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <graphic>
+                  <FontIcon fill="#9e549b" iconLiteral="fa-angle-left" iconSize="25" text="" wrappingWidth="55.0" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
             </children>
         </AnchorPane>
     </children>

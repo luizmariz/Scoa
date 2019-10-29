@@ -1,4 +1,4 @@
-package application.components;
+package application.views.register;
 
 import application.Http;
 import com.jfoenix.controls.JFXButton;
@@ -15,44 +15,29 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class RegisterPane {
-    private String userId = "WeDoNotHaveLoginYet";
+    private String userId;
     private Http req;
 
-    @FXML
-    private Pane userRegisterPane, classRegisterPane, roomRegisterPane, courseRegisterPane, loginPane, professorDashboard;
-
-    @FXML
-    private JFXButton userBtn, classBtn, roomBtn, courseBtn, loginBtn, registerUserBtn, registerClassBtn,
-            registerRoomBtn, registerCourseBtn, signOutBtn;
-
-    @FXML
-    private TextField userNameField, userCpfField, userEmailField, userDegreeField, userAreaField, classNameField,
+    @FXML private Pane userRegisterPane, classRegisterPane, roomRegisterPane, courseRegisterPane;
+    @FXML private JFXButton userBtn, classBtn, roomBtn, courseBtn;
+    @FXML private TextField userNameField, userCpfField, userEmailField, userDegreeField, userAreaField, classNameField,
             classCourseField, classCodeField, classHourField, classCreditField, courseNameField, roomNameField,
-            roomLocalField, roomCapacityField, loginCPField;
+            roomLocalField, roomCapacityField;
+    @FXML private JFXComboBox<String> userFunctionSelect;
+    @FXML private PasswordField userPasswordField, userConfirmPasswordField;
+    @FXML private Text userDegreeLabel, userAreaLabel;
+    @FXML private JFXTextArea classReqField, classContentField;
 
-    @FXML
-    private JFXComboBox<String> userFunctionSelect;
-
-    @FXML
-    private PasswordField loginPasswordField, userPasswordField, userConfirmPasswordField;
-
-    @FXML
-    private Text userDegreeLabel, userAreaLabel;
-
-    @FXML
-    private JFXTextArea classReqField, classContentField;
+    public void setUser (String userId) {
+        this.userId = userId;
+    }
 
     @FXML
     private void initialize () {
         String functions[] = {"Coordenador", "Professor", "Instrutor", "Aluno"};
         userFunctionSelect.setItems(FXCollections.observableArrayList(functions));
         userBtn.setStyle("-fx-background-color: #9e549b30");
-
         req = new Http("http://webhook.site");
-//        Text text = new Text();
-//        text.setText("sdfasdfasdfasd");
-//        ObservableList<Text> items = FXCollections.observableArrayList(text, text);
-//        classes.setItems(items);
     }
 
     @FXML
@@ -86,9 +71,6 @@ public class RegisterPane {
         if (selectedBtn == courseBtn) {
             courseRegisterPane.toFront();
         }
-        if (selectedBtn == signOutBtn) {
-            loginPane.toFront();
-        }
 
         selectedBtn.setStyle("-fx-background-color: #9e549b30");
     }
@@ -106,11 +88,6 @@ public class RegisterPane {
             userDegreeField.setVisible(false);
             userAreaField.setVisible(false);
         }
-    }
-
-    @FXML
-    public void handleLogin () {
-        loginPane.toBack();
     }
 
     @FXML
