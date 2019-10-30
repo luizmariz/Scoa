@@ -37,6 +37,7 @@ public abstract class User{
 		this.email = email;
 		this.senha = senha;
 	}
+	
 	public Long getIdUser() {
 		return idUser;
 	}

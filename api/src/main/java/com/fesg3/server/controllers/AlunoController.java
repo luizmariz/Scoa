@@ -31,7 +31,7 @@ public class AlunoController {
 	}
 	
 	@GetMapping(path = {"/{idAluno}"})
-	public ResponseEntity<?> findById(@PathVariable Long idAluno){
+	public ResponseEntity<?> findById(@PathVariable("idAluno") Long idAluno){
 	   return repository.findById(idAluno)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
@@ -66,4 +66,8 @@ public class AlunoController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping(path = {"/nome/{nomeAluno}"})
+	public Aluno findByFirstname(@PathVariable("nomeAluno") String nomeAluno){
+	   return repository.findByFirstname(nomeAluno);
+	}
 }
