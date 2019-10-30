@@ -1,9 +1,14 @@
 package com.fesg3.server.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -25,6 +30,15 @@ public class Discipline {
 	private Long cargaHoraria;
 	
 	private String ementa;
+	
+	@ManyToMany
+    @JoinTable(name="discipline_aluno", joinColumns=
+    {@JoinColumn(name="idDiscipline")}, inverseJoinColumns=
+      {@JoinColumn(name="matricula")})
+    private List<Aluno> alunos;
+	
+	@ManyToMany(mappedBy="disciplinas")
+    private List<Professor> professores;
 	
 	public Discipline() {
 	}
@@ -74,5 +88,16 @@ public class Discipline {
 	public void setEmenta(String ementa) {
 		this.ementa = ementa;
 	}
-	
+	public List<?> getAlunos() {
+		return alunos;
+	}
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+	public List<Professor> getProfessores() {
+		return professores;
+	}
+	public void setProfessores(List<Professor> professores) {
+		this.professores = professores;
+	}
 }

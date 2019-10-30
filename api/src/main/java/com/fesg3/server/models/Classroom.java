@@ -13,8 +13,6 @@ public class Classroom {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSala;
 	
-	private Long adminId;
-	
 	@NotBlank
 	private String local;
 	
@@ -22,13 +20,10 @@ public class Classroom {
 	
 	public Classroom() {
 	}
-	
 	public Classroom(String local, Long capacidade, Long adminId){
-		this.adminId = adminId;
 		this.local = local;
 		this.capacidade = capacidade;
 	}
-	
 	public Long getIdSala() {
 		return idSala;
 	}
@@ -47,11 +42,4 @@ public class Classroom {
 	public void setCapacidade(Long capacidade) {
 		this.capacidade = capacidade;
 	}
-	public Long getAdminId() {
-		return adminId;
-	}
-	public void setAdminId(Long adminId) {
-		this.adminId = adminId;
-	}
-	
 }

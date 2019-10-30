@@ -26,12 +26,12 @@ public class CourseController {
 	}
 	
 	@GetMapping
-	public List findAll() {
+	public List<?> findAll() {
 		return repository.findAll();
 	}
 	
 	@GetMapping(path = {"/{idCurso}"})
-	public ResponseEntity findById(@PathVariable Long idCurso){
+	public ResponseEntity<?> findById(@PathVariable Long idCurso){
 	   return repository.findById(idCurso)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
@@ -43,7 +43,7 @@ public class CourseController {
 	}
 	
 	@PutMapping(value="/{idCurso}")
-	public ResponseEntity update(@PathVariable("idCurso") Long idCurso,
+	public ResponseEntity<Course> update(@PathVariable("idCurso") Long idCurso,
 	                                      @RequestBody Course course) {
 	   return repository.findById(idCurso)
 	           .map(record -> {
