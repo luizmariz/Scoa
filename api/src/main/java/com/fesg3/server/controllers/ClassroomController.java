@@ -26,12 +26,12 @@ public class ClassroomController {
 	}
 	
 	@GetMapping
-	public List findAll() {
+	public List<?> findAll() {
 		return repository.findAll();
 	}
 	
 	@GetMapping(path = {"/{idSala}"})
-	public ResponseEntity findById(@PathVariable Long idSala){
+	public ResponseEntity<?> findById(@PathVariable Long idSala){
 	   return repository.findById(idSala)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
@@ -43,11 +43,10 @@ public class ClassroomController {
 	}
 	
 	@PutMapping(value="/{idSala}")
-	public ResponseEntity update(@PathVariable("idSala") Long idSala,
+	public ResponseEntity<Classroom> update(@PathVariable("idSala") Long idSala,
 	                                      @RequestBody Classroom classroom) {
 	   return repository.findById(idSala)
 	           .map(record -> {
-	        	   record.setAdminId(classroom.getAdminId());
 	               record.setLocal(classroom.getLocal());
 	               record.setCapacidade(classroom.getCapacidade());
 	               Classroom updated = repository.save(record);
