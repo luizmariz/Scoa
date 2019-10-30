@@ -31,7 +31,7 @@ public class ProfessorController {
 	}
 	
 	@GetMapping(path = {"/{idProfessor}"})
-	public ResponseEntity<?> findById(@PathVariable Long idUser){
+	public ResponseEntity<?> findById(@PathVariable("idProfessor") Long idUser){
 	   return repository.findById(idUser)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
@@ -66,5 +66,4 @@ public class ProfessorController {
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}
-	
 }
