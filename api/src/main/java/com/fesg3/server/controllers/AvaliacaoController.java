@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fesg3.server.models.Administrador;
-import com.fesg3.server.repositories.AdministradorRepository;
+import com.fesg3.server.models.Avaliacao;
+import com.fesg3.server.repositories.AvaliacaoRepository;
 
 @RestController
-@RequestMapping({"/administrador"})
-public class AdministradorController {
+@RequestMapping({"/avaliacao"})
+public class AvaliacaoController {
 	
-	private AdministradorRepository repository;
+	private AvaliacaoRepository repository;
 	
-	AdministradorController(AdministradorRepository AdministradorRepository) {
-		this.repository = AdministradorRepository;
+	AvaliacaoController(AvaliacaoRepository AvaliacaoRepository) {
+		this.repository = AvaliacaoRepository;
 	}
 	
 	@GetMapping
@@ -30,39 +30,38 @@ public class AdministradorController {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{user_id}"})
-	public ResponseEntity<?> findById(@PathVariable Long idUser){
-	   return repository.findById(idUser)
+	@GetMapping(path = {"/{avaliacao_id}"})
+	public ResponseEntity<?> findById(@PathVariable("avaliacao_id") Long avaliacao_id){
+	   return repository.findById(avaliacao_id)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
 	
 	@PostMapping
-	public Administrador create(@RequestBody Administrador Administrador){
-	   return repository.save(Administrador);
+	public Avaliacao create(@RequestBody Avaliacao Avaliacao){
+	   return repository.save(Avaliacao);
 	}
 	
-	@PutMapping(path="/{user_id}")
-	public ResponseEntity<Administrador> update(@PathVariable("user_id") Long idUser,
-	                                      @RequestBody Administrador Administrador) {
+	@PutMapping(path="/{avaliacao_id}")
+	public ResponseEntity<Avaliacao> update(@PathVariable("avaliacao_id") Long idUser,
+	                                      @RequestBody Avaliacao Avaliacao) {
 	   return repository.findById(idUser)
 	           .map(record -> {
-	               record.setNome(Administrador.getNome());
-	               record.setCpf(Administrador.getCpf());
-	               record.setEmail(Administrador.getEmail());
-	               record.setSenha(Administrador.getSenha());
-	               Administrador updated = repository.save(record);
+	               record.setData(Avaliacao.getData());
+	               record.setNota(Avaliacao.getNota());
+	               record.setAluno(Avaliacao.getAluno());
+	               record.setDiscipline(Avaliacao.getDiscipline());
+	               Avaliacao updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{user_id}"})
-	public ResponseEntity<?> delete(@PathVariable("user_id") Long idUser) {
+	@DeleteMapping(path ={"/{avaliacao_id}"})
+	public ResponseEntity<?> delete(@PathVariable("avaliacao_id") Long idUser) {
 	   return repository.findById(idUser)
 	           .map(record -> {
 	               repository.deleteById(idUser);
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}
-	
 }

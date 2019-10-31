@@ -30,9 +30,9 @@ public class ProfessorController {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{idProfessor}"})
-	public ResponseEntity<?> findById(@PathVariable("idProfessor") Long idUser){
-	   return repository.findById(idUser)
+	@GetMapping(path = {"/{user_id}"})
+	public ResponseEntity<?> findById(@PathVariable("user_id") Long user_id){
+	   return repository.findById(user_id)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
@@ -42,10 +42,10 @@ public class ProfessorController {
 	   return repository.save(Professor);
 	}
 	
-	@PutMapping(path="/{idProfessor}")
-	public ResponseEntity<Professor> update(@PathVariable("idProfessor") Long idUser,
+	@PutMapping(path="/{user_id}")
+	public ResponseEntity<Professor> update(@PathVariable("user_id") Long user_id,
 	                                      @RequestBody Professor Professor) {
-	   return repository.findById(idUser)
+	   return repository.findById(user_id)
 	           .map(record -> {
 	               record.setNome(Professor.getNome());
 	               record.setCpf(Professor.getCpf());
@@ -53,16 +53,17 @@ public class ProfessorController {
 	               record.setSenha(Professor.getSenha());
 	               record.setAreaAtuacao(Professor.getAreaAtuacao());
 	               record.setFormacao(Professor.getFormacao());
+	               record.setDiscipline(Professor.getDiscipline());
 	               Professor updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{idProfessor}"})
-	public ResponseEntity<?> delete(@PathVariable("idProfessor") Long idUser) {
-	   return repository.findById(idUser)
+	@DeleteMapping(path ={"/{user_id}"})
+	public ResponseEntity<?> delete(@PathVariable("user_id") Long user_id) {
+	   return repository.findById(user_id)
 	           .map(record -> {
-	               repository.deleteById(idUser);
+	               repository.deleteById(user_id);
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}

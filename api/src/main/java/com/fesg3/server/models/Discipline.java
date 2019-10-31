@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -16,12 +18,10 @@ public class Discipline {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idDiscipline;
+	private Long discipline_id;
 	
 	@NotBlank
 	private String nome;
-	
-	private Long adminId;
 	
 	private Long codigo;
 	
@@ -33,19 +33,25 @@ public class Discipline {
 	
 	@ManyToMany
     @JoinTable(name="discipline_aluno", joinColumns=
-    {@JoinColumn(name="idDiscipline")}, inverseJoinColumns=
-      {@JoinColumn(name="matricula")})
-    private List<Aluno> alunos;
+    {@JoinColumn(name="discipline_id")}, inverseJoinColumns=
+      {@JoinColumn(name="matricula_aluno")})
+    private List<Aluno> aluno;
 	
-	@ManyToMany(mappedBy="disciplinas")
-    private List<Professor> professores;
+	@ManyToMany(mappedBy="discipline")
+    private List<Professor> professor;
+		
+	@ManyToOne
+	@JoinColumn(name="classroom_id")
+	private Classroom classroom;
+	
+	@OneToMany(mappedBy="discipline")
+	private List<Avaliacao> avaliacao;
 	
 	public Discipline() {
 	}
 	
 	public Discipline(String nome, Long adminId, Long codigo, Long creditos, Long cargaHoraria, String ementa){
 		this.nome = nome;
-		this.adminId = adminId;
 		this.codigo = codigo;
 		this.creditos = creditos;
 		this.cargaHoraria = cargaHoraria;
@@ -76,28 +82,35 @@ public class Discipline {
 	public void setCargaHoraria(Long cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
-	public Long getAdminId() {
-		return adminId;
-	}
-	public void setAdminId(Long adminId) {
-		this.adminId = adminId;
-	}
 	public String getEmenta() {
 		return ementa;
 	}
 	public void setEmenta(String ementa) {
 		this.ementa = ementa;
 	}
-	public List<?> getAlunos() {
-		return alunos;
+	public List<Aluno> getAluno() {
+		return aluno;
 	}
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
+	public void setAluno(List<Aluno> aluno) {
+		this.aluno = aluno;
 	}
-	public List<Professor> getProfessores() {
-		return professores;
+	public List<Professor> getProfessor() {
+		return professor;
 	}
-	public void setProfessores(List<Professor> professores) {
-		this.professores = professores;
+	public void setProfessor(List<Professor> professor) {
+		this.professor = professor;
 	}
+	public Classroom getClassroom() {
+		return classroom;
+	}
+	public void setClassroom(Classroom classroom) {
+		this.classroom = classroom;
+	}
+	public List<Avaliacao> getAvaliacao() {
+		return avaliacao;
+	}
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+	
 }
