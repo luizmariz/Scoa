@@ -11,18 +11,15 @@ public class Course {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCurso;
+	private Long course_id;
 	
 	@NotBlank
 	private String nome;
 	
-	private Long adminId;
-	
 	public Course() {		
 	}
 	
-	public Course(Long idCurso, String nome){
-		this.idCurso = idCurso;
+	public Course(String nome){
 		this.nome = nome;
 	}
 	
@@ -32,17 +29,4 @@ public class Course {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Long getIdCurso() {
-		return idCurso;
-	}
-	public void setIdCurso(Long idCurso) {
-		this.idCurso = idCurso;
-	}
-	public Long getAdminId() {
-		return adminId;
-	}
-	public void setAdminId(Long adminId) {
-		this.adminId = adminId;
-	}
-	
 }

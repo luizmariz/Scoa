@@ -13,8 +13,8 @@ import javax.validation.constraints.NotBlank;
 public abstract class User{
 		
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long idUser;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long user_id;
 	
 	@NotBlank
 	private String nome;
@@ -38,9 +38,6 @@ public abstract class User{
 		this.senha = senha;
 	}
 	
-	public Long getIdUser() {
-		return idUser;
-	}
 	public String getNome() {
 		return nome;
 	}

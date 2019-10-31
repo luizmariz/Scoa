@@ -30,9 +30,9 @@ public class DisciplineController {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{idDiscipline}"})
-	public ResponseEntity<?> findById(@PathVariable Long idDiscipline){
-	   return repository.findById(idDiscipline)
+	@GetMapping(path = {"/{discipline_id}"})
+	public ResponseEntity<?> findById(@PathVariable Long discipline_id){
+	   return repository.findById(discipline_id)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
@@ -42,27 +42,30 @@ public class DisciplineController {
 	   return repository.save(discipline);
 	}
 	
-	@PutMapping(value="/{idDiscipline}")
-	public ResponseEntity<Discipline> update(@PathVariable("idDiscipline") Long idDiscipline,
+	@PutMapping(value="/{discipline_id}")
+	public ResponseEntity<Discipline> update(@PathVariable("discipline_id") Long discipline_id,
 	                                      @RequestBody Discipline discipline) {
-	   return repository.findById(idDiscipline)
+	   return repository.findById(discipline_id)
 	           .map(record -> {
 	               record.setNome(discipline.getNome());
-	               record.setAdminId(discipline.getAdminId());
 	               record.setCodigo(discipline.getCodigo());
 	               record.setCreditos(discipline.getCreditos());
 	               record.setCargaHoraria(discipline.getCargaHoraria());
 	               record.setEmenta(discipline.getEmenta());
+	               record.setAluno(discipline.getAluno());
+	               record.setProfessor(discipline.getProfessor());
+	               record.setClassroom(discipline.getClassroom());
+	               record.setAvaliacao(discipline.getAvaliacao());
 	               Discipline updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{idDiscipline}"})
-	public ResponseEntity<?> delete(@PathVariable Long idDiscipline) {
-	   return repository.findById(idDiscipline)
+	@DeleteMapping(path ={"/{discipline_id}"})
+	public ResponseEntity<?> delete(@PathVariable Long discipline_id) {
+	   return repository.findById(discipline_id)
 	           .map(record -> {
-	               repository.deleteById(idDiscipline);
+	               repository.deleteById(discipline_id);
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}

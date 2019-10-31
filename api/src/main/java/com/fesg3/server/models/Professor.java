@@ -16,9 +16,9 @@ public class Professor extends User {
 	
 	@ManyToMany
     @JoinTable(name="professor_discipline", joinColumns=
-    {@JoinColumn(name="idUser")}, inverseJoinColumns=
-      {@JoinColumn(name="idDiscipline")})
-    private List<Discipline> disciplinas;
+    {@JoinColumn(name="user_id")}, inverseJoinColumns=
+      {@JoinColumn(name="discipline_id")})
+    private List<Discipline> discipline;
 	
 	public Professor() {
 	}
@@ -39,10 +39,10 @@ public class Professor extends User {
 	public void setFormacao(String formacao) {
 		this.formacao = formacao;
 	}
-	public List<Discipline> getDisciplinas() {
-		return disciplinas;
+	public List<Discipline> getDiscipline() {
+		return discipline;
 	}
-	public void setTurmas(List<Discipline> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setDiscipline(List<Discipline> discipline) {
+		this.discipline = discipline;
 	}
 }

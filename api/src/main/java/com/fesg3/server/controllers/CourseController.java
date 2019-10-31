@@ -30,9 +30,9 @@ public class CourseController {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{idCurso}"})
-	public ResponseEntity<?> findById(@PathVariable Long idCurso){
-	   return repository.findById(idCurso)
+	@GetMapping(path = {"/{course_id}"})
+	public ResponseEntity<?> findById(@PathVariable Long course_id){
+	   return repository.findById(course_id)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
@@ -42,23 +42,22 @@ public class CourseController {
 	   return repository.save(course);
 	}
 	
-	@PutMapping(value="/{idCurso}")
-	public ResponseEntity<Course> update(@PathVariable("idCurso") Long idCurso,
+	@PutMapping(value="/{course_id}")
+	public ResponseEntity<Course> update(@PathVariable("course_id") Long course_id,
 	                                      @RequestBody Course course) {
-	   return repository.findById(idCurso)
+	   return repository.findById(course_id)
 	           .map(record -> {
 	               record.setNome(course.getNome());
-	               record.setAdminId(course.getAdminId());
 	               Course updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{idCurso}"})
-	public ResponseEntity<?> delete(@PathVariable Long idCurso) {
-	   return repository.findById(idCurso)
+	@DeleteMapping(path ={"/{course_id}"})
+	public ResponseEntity<?> delete(@PathVariable Long course_id) {
+	   return repository.findById(course_id)
 	           .map(record -> {
-	               repository.deleteById(idCurso);
+	               repository.deleteById(course_id);
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}

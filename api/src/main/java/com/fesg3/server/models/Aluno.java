@@ -4,14 +4,18 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno extends User {
 
 	private Long matricula;
 	
-	@ManyToMany(mappedBy="alunos")
-    private List<Discipline> disciplinas;
+	@ManyToMany(mappedBy="aluno")
+    private List<Discipline> discipline;
+	
+	@OneToMany(mappedBy="aluno")
+	private List<Avaliacao> avaliacao;
 	
 	public Aluno() {
 	}
@@ -25,10 +29,16 @@ public class Aluno extends User {
 	public void setMatricula(Long matricula) {
 		this.matricula = matricula;
 	}
-	public List<Discipline> getDisciplinas() {
-		return disciplinas;
+	public List<Discipline> getDiscipline() {
+		return discipline;
 	}
-	public void setDisciplinas(List<Discipline> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setDiscipline(List<Discipline> discipline) {
+		this.discipline = discipline;
+	}
+	public List<Avaliacao> getAvaliacao() {
+		return avaliacao;
+	}
+	public void setAvaliacao(List<Avaliacao> avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 }

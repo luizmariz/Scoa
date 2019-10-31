@@ -30,9 +30,9 @@ public class AlunoController {
 		return repository.findAll();
 	}
 	
-	@GetMapping(path = {"/{idAluno}"})
-	public ResponseEntity<?> findById(@PathVariable("idAluno") Long idAluno){
-	   return repository.findById(idAluno)
+	@GetMapping(path = {"/{user_id}"})
+	public ResponseEntity<?> findById(@PathVariable("user_id") Long user_id){
+	   return repository.findById(user_id)
 			   .map(record -> ResponseEntity.ok().body(record))
 	           .orElse(ResponseEntity.notFound().build());
 	}
@@ -42,8 +42,8 @@ public class AlunoController {
 	   return repository.save(Aluno);
 	}
 	
-	@PutMapping(path="/{idAluno}")
-	public ResponseEntity<Aluno> update(@PathVariable("idAluno") Long idUser,
+	@PutMapping(path="/{user_id}")
+	public ResponseEntity<Aluno> update(@PathVariable("user_id") Long idUser,
 	                                      @RequestBody Aluno Aluno) {
 	   return repository.findById(idUser)
 	           .map(record -> {
@@ -52,13 +52,15 @@ public class AlunoController {
 	               record.setEmail(Aluno.getEmail());
 	               record.setSenha(Aluno.getSenha());
 	               record.setMatricula(Aluno.getMatricula());
+	               record.setDiscipline(Aluno.getDiscipline());
+	               record.setAvaliacao(Aluno.getAvaliacao());
 	               Aluno updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@DeleteMapping(path ={"/{idAluno}"})
-	public ResponseEntity<?> delete(@PathVariable("idAluno") Long idUser) {
+	@DeleteMapping(path ={"/{user_id}"})
+	public ResponseEntity<?> delete(@PathVariable("user_id") Long idUser) {
 	   return repository.findById(idUser)
 	           .map(record -> {
 	               repository.deleteById(idUser);
@@ -66,8 +68,8 @@ public class AlunoController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping(path = {"/nome/{nomeAluno}"})
-	public Aluno findByFirstname(@PathVariable("nomeAluno") String nomeAluno){
-	   return repository.findByFirstname(nomeAluno);
+	@GetMapping(path = {"/nome/{aluno_nome}"})
+	public Aluno findByFirstname(@PathVariable("aluno_nome") String aluno_nome){
+	   return repository.findByFirstname(aluno_nome);
 	}
 }
