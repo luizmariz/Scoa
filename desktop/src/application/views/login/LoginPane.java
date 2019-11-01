@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public class LoginPane {
-    private String userId = "WeDoNotHaveLoginYet";
+    private long userId = 1234125234;
     // private Http req;
 
     @FXML private JFXButton loginBtn;

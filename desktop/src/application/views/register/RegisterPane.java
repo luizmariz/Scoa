@@ -14,8 +14,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Random;
+
 public class RegisterPane {
-    private String userId;
+    private long userId;
     private Http req;
 
     @FXML private Pane userRegisterPane, classRegisterPane, roomRegisterPane, courseRegisterPane;
@@ -28,7 +30,7 @@ public class RegisterPane {
     @FXML private Text userDegreeLabel, userAreaLabel;
     @FXML private JFXTextArea classReqField, classContentField;
 
-    public void setUser (String userId) {
+    public void setUser (long userId) {
         this.userId = userId;
     }
 
@@ -37,7 +39,7 @@ public class RegisterPane {
         String functions[] = {"Coordenador", "Professor", "Instrutor", "Aluno"};
         userFunctionSelect.setItems(FXCollections.observableArrayList(functions));
         userBtn.setStyle("-fx-background-color: #9e549b30");
-        req = new Http("http://webhook.site");
+        req = new Http("http://fesg3-api.herokuapp.com");
     }
 
     @FXML
@@ -90,15 +92,50 @@ public class RegisterPane {
         }
     }
 
+    private static int getRandomNumberInRange(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
     @FXML
     public void handleUserRegister () {
         System.out.println("saving user...");
-        String jsonInputString = String.format(
-                "{\"nome\": \"%s\", \"cpf\": \"%s\", \"email\": \"%s\", \"senha\": \"%s\", \"tipoUser\": \"%s\"}",
-                userNameField.getText(), userCpfField.getText(), userEmailField.getText(), userPasswordField.getText(),
-                userFunctionSelect.getValue()
-        );
-        req.post("/9ecf4a54-6e1b-41de-b0b5-76a40f42415d", jsonInputString);
+        String jsonInputString;
+        switch (userFunctionSelect.getValue()) {
+            case "Coordenador":
+                jsonInputString = String.format(
+                        "{\"nome\": \"%s\", \"cpf\": %s, \"email\": \"%s\", \"senha\": \"%s\"}",
+                        userNameField.getText(), userCpfField.getText(), userEmailField.getText(), userPasswordField.getText()
+                );
+                req.post("/administrador", jsonInputString);
+                break;
+            case "Professor":
+                jsonInputString = String.format(
+                        "{\"nome\": \"%s\", \"cpf\": %s, \"email\": \"%s\", \"senha\": \"%s\", \"areaAtuacao\": \"%s\"," +
+                                "\"formacao\": \"%s\"}",
+                        userNameField.getText(), userCpfField.getText(), userEmailField.getText(),
+                        userPasswordField.getText(), userAreaField.getText(), userDegreeField.getText()
+                );
+                req.post("/professor", jsonInputString);
+                break;
+            case "Aluno":
+                jsonInputString = String.format(
+                        "{\"nome\": \"%s\", \"cpf\": %s, \"email\": \"%s\", \"senha\": \"%s\", \"matricula\": %d}",
+                        userNameField.getText(), userCpfField.getText(), userEmailField.getText(),
+                        userPasswordField.getText(), getRandomNumberInRange(1, 255000000)
+                );
+                req.post("/aluno", jsonInputString);
+                break;
+            case "Instrutor":
+                break;
+            default:
+                break;
+        }
 
         userFunctionSelect.setValue(null);
         userNameField.clear();
@@ -114,12 +151,12 @@ public class RegisterPane {
     public void handleClassRegister () {
         System.out.println("saving class...");
         String jsonInputString = String.format(
-                "{\"adminId\": \"%s\", \"nome\": \"%s\", \"codigo\": \"%s\", \"creditos\": \"%s\", " +
+                "{\"nome\": \"%s\", \"codigo\": \"%s\", \"creditos\": \"%s\", " +
                         "\"cargaHoraria\": \"%s\", \"ementa\": \"%s\"}",
-                userId, classNameField.getText(), classCodeField.getText(), classCreditField.getText(),
+                classNameField.getText(), classCodeField.getText(), classCreditField.getText(),
                 classHourField.getText(), classContentField.getText()
         );
-        req.post("/9ecf4a54-6e1b-41de-b0b5-76a40f42415d", jsonInputString);
+        req.post("/discipline", jsonInputString);
 
         classNameField.clear();
         classCodeField.clear();
@@ -134,10 +171,10 @@ public class RegisterPane {
     public void handleRoomRegister () {
         System.out.println("saving Room...");
         String jsonInputString = String.format(
-                "{\"adminId\": \"%s\", \"local\": \"%s\", \"capacidade\": \"%s\"}",
-                userId, roomLocalField.getText(), roomCapacityField.getText()
+                "{\"local\": \"%s\", \"capacidade\": \"%s\"}",
+                roomLocalField.getText(), roomCapacityField.getText()
         );
-        req.post("/9ecf4a54-6e1b-41de-b0b5-76a40f42415d", jsonInputString);
+        req.post("/classroom", jsonInputString);
 
         roomLocalField.clear();
         roomNameField.clear();
@@ -148,10 +185,10 @@ public class RegisterPane {
     public void handleCourseRegister () {
         System.out.println("saving course...");
         String jsonInputString = String.format(
-                "{\"adminId\": \"%s\", \"nome\": \"%s\"}",
-                userId, courseNameField.getText()
+                "{\"nome\": \"%s\"}",
+                courseNameField.getText()
         );
-        req.post("/9ecf4a54-6e1b-41de-b0b5-76a40f42415d", jsonInputString);
+        req.post("/course", jsonInputString);
 
         courseNameField.clear();
     }
