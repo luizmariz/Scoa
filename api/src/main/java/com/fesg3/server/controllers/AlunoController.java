@@ -68,7 +68,7 @@ public class AlunoController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping(path = {"/nome/{aluno_nome}"})
+	@GetMapping(path = {"/findbyname/{aluno_nome}"})
 	public Aluno findByFirstname(@PathVariable("aluno_nome") String aluno_nome){
 	   return repository.findByFirstname(aluno_nome);
 	}
