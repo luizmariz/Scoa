@@ -70,4 +70,8 @@ public class DisciplineController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping(path = {"/findbyname/{discipline_nome}"})
+	public Discipline findByName(@PathVariable("discipline_nome") String discipline_nome){
+	   return repository.findByName(discipline_nome);
+	}
 }

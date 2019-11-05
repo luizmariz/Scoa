@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 public abstract class User{
 		
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long user_id;
 	
 	@NotBlank

@@ -65,4 +65,8 @@ public class AdministradorController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping(path = {"/findbyname/{administrador_nome}"})
+	public Administrador findByName(@PathVariable("administrador_nome") String administrador_nome){
+	   return repository.findByName(administrador_nome);
+	}
 }

@@ -69,7 +69,7 @@ public class AlunoController {
 	}
 	
 	@GetMapping(path = {"/findbyname/{aluno_nome}"})
-	public Aluno findByFirstname(@PathVariable("aluno_nome") String aluno_nome){
-	   return repository.findByFirstname(aluno_nome);
+	public Aluno findByName(@PathVariable("aluno_nome") String aluno_nome){
+	   return repository.findByName(aluno_nome);
 	}
 }

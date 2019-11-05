@@ -8,5 +8,6 @@ import com.fesg3.server.models.Aluno;
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
 	
 	 @Query("select u from Aluno u where u.nome = ?1")
-	 Aluno findByFirstname(String nome);
+	 Aluno findByName(String nome);
+	 
 }

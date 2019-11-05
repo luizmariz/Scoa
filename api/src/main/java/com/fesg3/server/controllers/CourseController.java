@@ -62,4 +62,8 @@ public class CourseController {
 	           }).orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping(path = {"/findbyname/{course_nome}"})
+	public Course findByName(@PathVariable("course_nome") String course_nome){
+	   return repository.findByName(course_nome);
+	}
 }

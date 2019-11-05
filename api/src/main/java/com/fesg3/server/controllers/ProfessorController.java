@@ -67,4 +67,9 @@ public class ProfessorController {
 	               return ResponseEntity.ok().build();
 	           }).orElse(ResponseEntity.notFound().build());
 	}
+	
+	@GetMapping(path = {"/findbyname/{professor_nome}"})
+	public Professor findByName(@PathVariable("professor_nome") String professor_nome){
+	   return repository.findByName(professor_nome);
+	}
 }
