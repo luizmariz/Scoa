@@ -13,18 +13,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import scoa.desktop.Router;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class RegisterPane {
     private long userId;
     private Http req;
 
-    @FXML private Pane userRegisterPane, classRegisterPane, roomRegisterPane, courseRegisterPane;
-    @FXML private JFXButton userBtn, classBtn, roomBtn, courseBtn;
+    @FXML private Pane userRegisterPane, classRegisterPane, roomRegisterPane, courseRegisterPane, profLinkPane;
+    @FXML private JFXButton userBtn, classBtn, roomBtn, courseBtn, profLinkBtn;
     @FXML private TextField userNameField, userCpfField, userEmailField, userDegreeField, userAreaField, classNameField,
             classCourseField, classCodeField, classHourField, classCreditField, courseNameField, roomNameField,
-            roomLocalField, roomCapacityField;
+            roomLocalField, roomCapacityField, profLinkIdField, profLinkDIdField;
     @FXML private JFXComboBox<String> userFunctionSelect;
     @FXML private PasswordField userPasswordField, userConfirmPasswordField;
     @FXML private Text userDegreeLabel, userAreaLabel;
@@ -72,6 +74,9 @@ public class RegisterPane {
         }
         if (selectedBtn == courseBtn) {
             courseRegisterPane.toFront();
+        }
+        if (selectedBtn == profLinkBtn) {
+            profLinkPane.toFront();
         }
 
         selectedBtn.setStyle("-fx-background-color: #9e549b30");
@@ -191,5 +196,23 @@ public class RegisterPane {
         req.post("/course", jsonInputString);
 
         courseNameField.clear();
+    }
+
+    @FXML
+    public void handleProfLink () {
+        System.out.println("saving link...");
+        String jsonInputString = String.format(
+                "{\"profId\": \"%s\", \"classId\": \"%s\"}",
+                profLinkIdField.getText(), profLinkDIdField.getText()
+        );
+        req.post("", jsonInputString);
+
+        profLinkIdField.clear();
+        profLinkDIdField.clear();
+    }
+
+    @FXML
+    public void handleLogout () throws IOException {
+        Router.toView("views/loginPane.fxml");
     }
 }
