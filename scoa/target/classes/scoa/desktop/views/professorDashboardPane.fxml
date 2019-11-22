@@ -16,7 +16,7 @@
    <children>
       <Pane fx:id="classPane" layoutX="252.0" layoutY="57.0" prefHeight="573.0" prefWidth="828.0" style="-fx-background-color: white;">
          <children>
-            <JFXButton layoutX="71.0" layoutY="489.0" prefHeight="39.0" prefWidth="123.0" ripplerFill="#4d4d4d00" style="-fx-background-color: #9e549b;" text="SALVAR" textFill="WHITE">
+            <JFXButton layoutX="63.0" layoutY="490.0" prefHeight="39.0" prefWidth="123.0" ripplerFill="#4d4d4d00" style="-fx-background-color: #9e549b;" text="SALVAR" textFill="WHITE">
                <font>
                   <Font name="Open Sans Semibold" size="14.0" />
                </font>
@@ -24,17 +24,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Text fx:id="classCode" fill="#333333" layoutX="71.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAB489" wrappingWidth="170.0">
+            <Text fx:id="classCode" fill="#333333" layoutX="63.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TURMA X" wrappingWidth="170.0">
                <font>
                   <Font size="32.0" />
                </font>
             </Text>
-            <TableView fx:id="studentTable" layoutX="71.0" layoutY="69.0" prefHeight="389.0" prefWidth="659.0">
+            <TableView fx:id="studentTable" layoutX="63.0" layoutY="69.0" prefHeight="389.0" prefWidth="697.0">
               <columns>
                 <TableColumn fx:id="dreCol" prefWidth="110.0" text="DRE" />
                 <TableColumn fx:id="nomeCol" prefWidth="308.0" text="Nome" />
-                  <TableColumn fx:id="faltasCol" prefWidth="123.0" text="Faltas" />
-                  <TableColumn fx:id="mediaCol" prefWidth="117.0" text="Média" />
+                 <TableColumn fx:id="faltasCol" prefWidth="123.0" text="Faltas" />
+                 <TableColumn fx:id="mediaCol" prefWidth="117.0" text="Média" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -42,19 +42,34 @@
             </TableView>
          </children>
       </Pane>
-      <Pane layoutX="251.0" layoutY="58.0" prefHeight="573.0" prefWidth="828.0" style="-fx-background-color: white;">
+      <Pane fx:id="profClassPane" layoutX="252.0" layoutY="57.0" prefHeight="573.0" prefWidth="828.0" style="-fx-background-color: white;">
+         <children>
+            <Text fill="#333333" layoutX="64.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suas turmas">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="disciplineCode" fill="#333333" layoutX="64.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAB489" wrappingWidth="170.0">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+            <JFXListView fx:id="classList" layoutX="64.0" layoutY="159.0" prefHeight="382.0" prefWidth="690.0" style="-fx-border-color: white;" />
+         </children>
+      </Pane>
+      <Pane fx:id="profDisciplinePane" layoutX="252.0" layoutY="57.0" prefHeight="573.0" prefWidth="828.0" style="-fx-background-color: white;">
          <children>
              <Text fill="#333333" layoutX="64.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo, Professor" wrappingWidth="170.0">
                <font>
                   <Font size="32.0" />
                </font>
             </Text>
-            <Text fill="#333333" layoutX="64.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suas turmas">
+            <Text fill="#333333" layoutX="64.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suas disciplinas">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <JFXListView fx:id="classesList" layoutX="64.0" layoutY="159.0" prefHeight="349.0" prefWidth="516.0" style="-fx-border-color: white;" />
+            <JFXListView fx:id="disciplineList" layoutX="64.0" layoutY="159.0" prefHeight="382.0" prefWidth="690.0" style="-fx-border-color: white;" />
          </children>
       </Pane>
       <AnchorPane prefHeight="630.0" prefWidth="252.0" style="-fx-background-color: #F2D9FF;">
@@ -71,13 +86,13 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="userBtn1" alignment="BASELINE_LEFT" prefHeight="57.0" prefWidth="252.0" text=" ">
-               <font>
-                  <Font name="Open Sans" size="12.0" />
-               </font>
+            <JFXButton fx:id="backBtn" alignment="BASELINE_LEFT" onAction="#handleBack" prefHeight="57.0" prefWidth="252.0" text="VOLTAR" visible="false">
                <padding>
-                  <Insets left="15.0" />
+                  <Insets left="20.0" />
                </padding>
+               <graphic>
+                  <FontIcon fill="#9e549b" iconLiteral="fa-arrow-left" iconSize="20" wrappingWidth="55.0" />
+               </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

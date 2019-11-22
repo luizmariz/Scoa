@@ -1,0 +1,10 @@
+scoa\desktop\views\Student.class
+scoa\desktop\views\ProfessorDashboardPane.class
+scoa\desktop\views\ProfessorDashboardPane$1.class
+scoa\desktop\Router.class
+scoa\desktop\Http.class
+scoa\desktop\Application.class
+scoa\desktop\views\RegisterPane.class
+scoa\desktop\components\MenuBtn.class
+scoa\desktop\Main.class
+scoa\desktop\views\LoginPane.class
