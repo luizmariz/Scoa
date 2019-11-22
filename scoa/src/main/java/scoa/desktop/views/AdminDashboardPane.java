@@ -18,26 +18,27 @@ import scoa.desktop.Router;
 import java.io.IOException;
 import java.util.Random;
 
-public class RegisterPane {
+public class AdminDashboardPane {
     private long userId;
     private Http req;
 
-    @FXML private Pane userRegisterPane, classRegisterPane, roomRegisterPane, courseRegisterPane, profLinkPane;
-    @FXML private JFXButton userBtn, classBtn, roomBtn, courseBtn, profLinkBtn;
-    @FXML private TextField userNameField, userCpfField, userEmailField, userDegreeField, userAreaField, classNameField,
-            classCourseField, classCodeField, classHourField, classCreditField, courseNameField, roomNameField,
+    @FXML private Pane userRegisterPane, disciplineRegisterPane, roomRegisterPane, courseRegisterPane, profLinkPane,
+            classRegisterPane;
+    @FXML private JFXButton userBtn, classBtn, roomBtn, courseBtn, profLinkBtn, disciplineBtn;
+    @FXML private TextField userNameField, userCpfField, userEmailField, userDegreeField, userAreaField, disciplineNameField,
+            disciplineCourseField, disciplineCodeField, disciplineHourField, disciplineCreditField, courseNameField, roomNameField,
             roomLocalField, roomCapacityField, profLinkIdField, profLinkDIdField;
     @FXML private JFXComboBox<String> userFunctionSelect;
     @FXML private PasswordField userPasswordField, userConfirmPasswordField;
     @FXML private Text userDegreeLabel, userAreaLabel;
-    @FXML private JFXTextArea classReqField, classContentField;
+    @FXML private JFXTextArea disciplineReqField, disciplineContentField;
 
-    public void setUser (long userId) {
+    public void setUser(long userId) {
         this.userId = userId;
     }
 
     @FXML
-    private void initialize () {
+    private void initialize() {
         String functions[] = {"Coordenador", "Professor", "Instrutor", "Aluno"};
         userFunctionSelect.setItems(FXCollections.observableArrayList(functions));
         userBtn.setStyle("-fx-background-color: #9e549b30");
@@ -45,17 +46,17 @@ public class RegisterPane {
     }
 
     @FXML
-    public void handleCloseButtonAction (ActionEvent event) {
+    public void handleCloseButtonAction(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
     @FXML
-    public void handleMinimizeButtonAction (ActionEvent event) {
+    public void handleMinimizeButtonAction(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).setIconified(true);
     }
 
     @FXML
-    public void handleRegisterPane (ActionEvent event) {
+    public void handleRegisterPane(ActionEvent event) {
         JFXButton selectedBtn = (JFXButton)event.getSource();
 
         userBtn.setStyle("-fx-background-color: #9e549b00");
@@ -65,6 +66,9 @@ public class RegisterPane {
 
         if (selectedBtn == userBtn) {
             userRegisterPane.toFront();
+        }
+        if (selectedBtn == disciplineBtn) {
+            disciplineRegisterPane.toFront();
         }
         if (selectedBtn == classBtn) {
             classRegisterPane.toFront();
@@ -79,11 +83,17 @@ public class RegisterPane {
             profLinkPane.toFront();
         }
 
+        userBtn.setStyle("-fx-background-color: #9e549b00");
+        disciplineBtn.setStyle("-fx-background-color: #9e549b00");
+        classBtn.setStyle("-fx-background-color: #9e549b00");
+        roomBtn.setStyle("-fx-background-color: #9e549b00");
+        courseBtn.setStyle("-fx-background-color: #9e549b00");
+        profLinkBtn.setStyle("-fx-background-color: #9e549b00");
         selectedBtn.setStyle("-fx-background-color: #9e549b30");
     }
 
     @FXML
-    public void handleSelectChange (ActionEvent event) {
+    public void handleSelectChange(ActionEvent event) {
         if (userFunctionSelect.getValue() == "Professor") {
             userDegreeLabel.setVisible(true);
             userAreaLabel.setVisible(true);
@@ -108,7 +118,7 @@ public class RegisterPane {
     }
 
     @FXML
-    public void handleUserRegister () {
+    public void handleUserRegister() {
         System.out.println("saving user...");
         String jsonInputString;
         switch (userFunctionSelect.getValue()) {
@@ -153,27 +163,27 @@ public class RegisterPane {
     }
 
     @FXML
-    public void handleClassRegister () {
-        System.out.println("saving class...");
+    public void handleDisciplineRegister() {
+        System.out.println("saving discipline...");
         String jsonInputString = String.format(
                 "{\"nome\": \"%s\", \"codigo\": \"%s\", \"creditos\": \"%s\", " +
                         "\"cargaHoraria\": \"%s\", \"ementa\": \"%s\"}",
-                classNameField.getText(), classCodeField.getText(), classCreditField.getText(),
-                classHourField.getText(), classContentField.getText()
+                disciplineNameField.getText(), disciplineCodeField.getText(), disciplineCreditField.getText(),
+                disciplineHourField.getText(), disciplineContentField.getText()
         );
         req.post("/discipline", jsonInputString);
 
-        classNameField.clear();
-        classCodeField.clear();
-        classCreditField.clear();
-        classHourField.clear();
-        classContentField.clear();
-        classReqField.clear();
-        classCourseField.clear();
+        disciplineNameField.clear();
+        disciplineCodeField.clear();
+        disciplineCreditField.clear();
+        disciplineHourField.clear();
+        disciplineContentField.clear();
+        disciplineReqField.clear();
+        disciplineCourseField.clear();
     }
 
     @FXML
-    public void handleRoomRegister () {
+    public void handleRoomRegister() {
         System.out.println("saving Room...");
         String jsonInputString = String.format(
                 "{\"local\": \"%s\", \"capacidade\": \"%s\"}",
@@ -187,7 +197,7 @@ public class RegisterPane {
     }
 
     @FXML
-    public void handleCourseRegister () {
+    public void handleCourseRegister() {
         System.out.println("saving course...");
         String jsonInputString = String.format(
                 "{\"nome\": \"%s\"}",
@@ -199,7 +209,7 @@ public class RegisterPane {
     }
 
     @FXML
-    public void handleProfLink () {
+    public void handleProfLink() {
         System.out.println("saving link...");
         String jsonInputString = String.format(
                 "{\"profId\": \"%s\", \"classId\": \"%s\"}",
@@ -212,7 +222,20 @@ public class RegisterPane {
     }
 
     @FXML
-    public void handleLogout () throws IOException {
+    public void handleClassRegister() {
+        System.out.println("saving link...");
+        String jsonInputString = String.format(
+                "{\"profId\": \"%s\", \"classId\": \"%s\"}",
+                profLinkIdField.getText(), profLinkDIdField.getText()
+        );
+        req.post("", jsonInputString);
+
+        profLinkIdField.clear();
+        profLinkDIdField.clear();
+    }
+
+    @FXML
+    public void handleLogout() throws IOException {
         Router.toView("views/loginPane.fxml");
     }
 }

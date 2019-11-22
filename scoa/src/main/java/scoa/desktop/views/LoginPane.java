@@ -1,7 +1,6 @@
 package scoa.desktop.views;
 
 import scoa.desktop.Router;
-import scoa.desktop.views.RegisterPane;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -23,7 +22,7 @@ public class LoginPane {
     public void handleLogin () throws IOException {
         String role = loginCpfField.getText();
         if (role.equals("admin")) {
-            RegisterPane paneController = Router.<RegisterPane>toView("views/registerPane.fxml");
+            AdminDashboardPane paneController = Router.<AdminDashboardPane>toView("views/adminDashboardPane.fxml");
             paneController.setUser(userId);
         }
         if (role.equals("professor")) {
