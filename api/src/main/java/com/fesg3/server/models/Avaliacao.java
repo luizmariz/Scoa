@@ -23,8 +23,8 @@ public class Avaliacao {
 	private Aluno aluno;
 	
 	@ManyToOne
-	@JoinColumn(name="discipline_id")
-	private Discipline discipline;
+	@JoinColumn(name="turma_id")
+	private Turma turma;
 	
 	public Avaliacao() {
 	}
@@ -52,10 +52,10 @@ public class Avaliacao {
 	public void setAluno(Aluno matricula_aluno) {
 		this.aluno = matricula_aluno;
 	}
-	public Discipline getDiscipline() {
-		return discipline;
+	public Turma getTurma() {
+		return turma;
 	}
-	public void setDiscipline(Discipline discipline_id) {
-		this.discipline = discipline_id;
+	public void setTurma(Turma turma_id) {
+		this.turma = turma_id;
 	}
 }

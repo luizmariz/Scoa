@@ -52,7 +52,6 @@ public class AlunoController {
 	               record.setEmail(Aluno.getEmail());
 	               record.setSenha(Aluno.getSenha());
 	               record.setMatricula(Aluno.getMatricula());
-	               record.setDiscipline(Aluno.getDiscipline());
 	               record.setAvaliacao(Aluno.getAvaliacao());
 	               Aluno updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);

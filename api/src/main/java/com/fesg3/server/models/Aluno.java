@@ -12,7 +12,7 @@ public class Aluno extends User {
 	private Long matricula;
 	
 	@ManyToMany(mappedBy="aluno")
-    private List<Discipline> discipline;
+    private List<Turma> turma;
 	
 	@OneToMany(mappedBy="aluno")
 	private List<Avaliacao> avaliacao;
@@ -29,11 +29,11 @@ public class Aluno extends User {
 	public void setMatricula(Long matricula) {
 		this.matricula = matricula;
 	}
-	public List<Discipline> getDiscipline() {
-		return discipline;
+	public List<Turma> getTurma() {
+		return turma;
 	}
-	public void setDiscipline(List<Discipline> discipline) {
-		this.discipline = discipline;
+	public void setTurma(List<Turma> turma) {
+		this.turma = turma;
 	}
 	public List<Avaliacao> getAvaliacao() {
 		return avaliacao;

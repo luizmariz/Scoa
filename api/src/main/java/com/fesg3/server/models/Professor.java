@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Professor extends User {
@@ -19,6 +20,10 @@ public class Professor extends User {
     {@JoinColumn(name="user_id")}, inverseJoinColumns=
       {@JoinColumn(name="discipline_id")})
     private List<Discipline> discipline;
+	
+	@ManyToOne
+	@JoinColumn(name="course_id")
+	private Course course;
 	
 	public Professor() {
 	}
@@ -44,5 +49,11 @@ public class Professor extends User {
 	}
 	public void setDiscipline(List<Discipline> discipline) {
 		this.discipline = discipline;
+	}
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 }

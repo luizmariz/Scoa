@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,21 +30,15 @@ public class Discipline {
 	
 	private String ementa;
 	
-	@ManyToMany
-    @JoinTable(name="discipline_aluno", joinColumns=
-    {@JoinColumn(name="discipline_id")}, inverseJoinColumns=
-      {@JoinColumn(name="matricula_aluno")})
-    private List<Aluno> aluno;
-	
 	@ManyToMany(mappedBy="discipline")
     private List<Professor> professor;
-		
-	@ManyToOne
-	@JoinColumn(name="classroom_id")
-	private Classroom classroom;
 	
 	@OneToMany(mappedBy="discipline")
-	private List<Avaliacao> avaliacao;
+	private List<Turma> turma;
+	
+	@ManyToOne
+	@JoinColumn(name="course_id")
+	private Course course;
 	
 	public Discipline() {
 	}
@@ -88,29 +81,23 @@ public class Discipline {
 	public void setEmenta(String ementa) {
 		this.ementa = ementa;
 	}
-	public List<Aluno> getAluno() {
-		return aluno;
-	}
-	public void setAluno(List<Aluno> aluno) {
-		this.aluno = aluno;
-	}
 	public List<Professor> getProfessor() {
 		return professor;
 	}
 	public void setProfessor(List<Professor> professor) {
 		this.professor = professor;
 	}
-	public Classroom getClassroom() {
-		return classroom;
+	public List<Turma> getTurma() {
+		return turma;
 	}
-	public void setClassroom(Classroom classroom) {
-		this.classroom = classroom;
+	public void setTurma(List<Turma> turma) {
+		this.turma = turma;
 	}
-	public List<Avaliacao> getAvaliacao() {
-		return avaliacao;
+	public Course getCourse() {
+		return course;
 	}
-	public void setAvaliacao(List<Avaliacao> avaliacao) {
-		this.avaliacao = avaliacao;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	
 }

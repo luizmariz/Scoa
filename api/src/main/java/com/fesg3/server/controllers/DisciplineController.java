@@ -52,10 +52,9 @@ public class DisciplineController {
 	               record.setCreditos(discipline.getCreditos());
 	               record.setCargaHoraria(discipline.getCargaHoraria());
 	               record.setEmenta(discipline.getEmenta());
-	               record.setAluno(discipline.getAluno());
 	               record.setProfessor(discipline.getProfessor());
-	               record.setClassroom(discipline.getClassroom());
-	               record.setAvaliacao(discipline.getAvaliacao());
+	               record.setTurma(discipline.getTurma());
+	               record.setCourse(discipline.getCourse());
 	               Discipline updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());

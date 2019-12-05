@@ -50,7 +50,7 @@ public class AvaliacaoController {
 	               record.setData(Avaliacao.getData());
 	               record.setNota(Avaliacao.getNota());
 	               record.setAluno(Avaliacao.getAluno());
-	               record.setDiscipline(Avaliacao.getDiscipline());
+	               record.setTurma(Avaliacao.getTurma());
 	               Avaliacao updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());

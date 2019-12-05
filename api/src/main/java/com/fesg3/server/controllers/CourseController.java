@@ -48,6 +48,8 @@ public class CourseController {
 	   return repository.findById(course_id)
 	           .map(record -> {
 	               record.setNome(course.getNome());
+	               record.setDiscipline(course.getDiscipline());
+	               record.setProfessor(course.getProfessor());
 	               Course updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());

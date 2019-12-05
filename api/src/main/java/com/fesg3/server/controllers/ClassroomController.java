@@ -49,7 +49,7 @@ public class ClassroomController {
 	           .map(record -> {
 	               record.setLocal(classroom.getLocal());
 	               record.setCapacidade(classroom.getCapacidade());
-	               record.setDiscipline(classroom.getDiscipline());
+	               record.setTurma(classroom.getTurma());
 	               Classroom updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());
