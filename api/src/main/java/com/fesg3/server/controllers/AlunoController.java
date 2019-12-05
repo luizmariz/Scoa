@@ -50,7 +50,8 @@ public class AlunoController {
 	               record.setNome(Aluno.getNome());
 	               record.setCpf(Aluno.getCpf());
 	               record.setEmail(Aluno.getEmail());
-	               record.setSenha(Aluno.getSenha());
+	               record.setUsername(Aluno.getUsername());
+	               record.setPassword(Aluno.getPassword());
 	               record.setMatricula(Aluno.getMatricula());
 	               record.setAvaliacao(Aluno.getAvaliacao());
 	               Aluno updated = repository.save(record);

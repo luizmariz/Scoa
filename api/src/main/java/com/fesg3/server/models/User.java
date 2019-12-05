@@ -17,6 +17,12 @@ public abstract class User{
 	private Long user_id;
 	
 	@NotBlank
+	private String username;
+	
+	@NotBlank
+	private Long password;
+	
+	@NotBlank
 	private String nome;
 	
 	@NotBlank
@@ -25,17 +31,15 @@ public abstract class User{
 	@NotBlank
 	private String email;
 	
-	@NotBlank
-	private String senha;
-	
 	public User() {	
 	}
 	
-	public User(String nome, String cpf, String email, String senha){
+	public User(String username, Long password, String nome, String cpf, String email, String senha){
+		this.username = username;
+		this.password = password;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
-		this.senha = senha;
 	}
 	
 	public String getNome() {
@@ -56,10 +60,16 @@ public abstract class User{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSenha() {
-		return senha;
+	public String getUsername() {
+		return username;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public Long getPassword() {
+		return password;
+	}
+	public void setPassword(Long password) {
+		this.password = password;
 	}
 }

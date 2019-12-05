@@ -50,7 +50,8 @@ public class ProfessorController {
 	               record.setNome(Professor.getNome());
 	               record.setCpf(Professor.getCpf());
 	               record.setEmail(Professor.getEmail());
-	               record.setSenha(Professor.getSenha());
+	               record.setUsername(Professor.getUsername());
+	               record.setPassword(Professor.getPassword());
 	               record.setAreaAtuacao(Professor.getAreaAtuacao());
 	               record.setFormacao(Professor.getFormacao());
 	               record.setDiscipline(Professor.getDiscipline());

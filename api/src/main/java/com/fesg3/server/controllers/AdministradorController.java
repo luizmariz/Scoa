@@ -50,7 +50,8 @@ public class AdministradorController {
 	               record.setNome(Administrador.getNome());
 	               record.setCpf(Administrador.getCpf());
 	               record.setEmail(Administrador.getEmail());
-	               record.setSenha(Administrador.getSenha());
+	               record.setUsername(Administrador.getUsername());
+	               record.setPassword(Administrador.getPassword());
 	               Administrador updated = repository.save(record);
 	               return ResponseEntity.ok().body(updated);
 	           }).orElse(ResponseEntity.notFound().build());

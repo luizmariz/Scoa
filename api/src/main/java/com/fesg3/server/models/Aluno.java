@@ -19,8 +19,8 @@ public class Aluno extends User {
 	
 	public Aluno() {
 	}
-	public Aluno(String nome, String cpf, String email, String senha, Long matricula) {
-		super(nome, cpf, email, senha);
+	public Aluno(String username, Long password, String nome, String cpf, String email, String senha, Long matricula) {
+		super();
 		this.matricula = matricula;
 	}
 	public Long getMatricula() {
