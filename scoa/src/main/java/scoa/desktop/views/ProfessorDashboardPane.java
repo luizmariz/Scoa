@@ -1,6 +1,7 @@
 package scoa.desktop.views;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import scoa.desktop.Router;
 import com.jfoenix.controls.JFXListView;
@@ -81,24 +82,16 @@ public class ProfessorDashboardPane {
         String[] sArr = {"MAB489", "FES7219","MAB489", "FES7219","MAB489", "FES7219"};
         setDisciplineList(sArr);
 
-        disciplineList.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                handleSelectDiscipline(event);
-            }
-        });
+        disciplineList.setOnMouseClicked(event -> handleSelectDiscipline(event));
+        classList.setOnMouseClicked(event -> handleSelectClass(event));
 
-        classList.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                handleSelectClass(event);
-            }
-        });
-
-        dreCol.setCellValueFactory(new PropertyValueFactory<Student, String>("dre"));
+        dreCol.setCellValueFactory(new PropertyValueFactory<>("dre"));
         nomeCol.setCellValueFactory(new PropertyValueFactory<Student, String>("nome"));
-        faltasCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("faltas"));
+        faltasCol.setCellFactory(TextFieldTableCell.forTableColumn());
         mediaCol.setCellValueFactory(new PropertyValueFactory<Student, String>("media"));
+
+        faltasCol.setEditable(true);
+        faltasCol.setOnEditCommit((EventHandler<TableColumn.CellEditEvent<Student, Integer>>) t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setFaltas(t.getNewValue()));
     }
 
     @FXML

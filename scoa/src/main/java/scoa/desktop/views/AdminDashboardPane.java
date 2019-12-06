@@ -46,16 +46,6 @@ public class AdminDashboardPane {
     }
 
     @FXML
-    public void handleCloseButtonAction(ActionEvent event) {
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    }
-
-    @FXML
-    public void handleMinimizeButtonAction(ActionEvent event) {
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).setIconified(true);
-    }
-
-    @FXML
     public void handleRegisterPane(ActionEvent event) {
         JFXButton selectedBtn = (JFXButton)event.getSource();
 

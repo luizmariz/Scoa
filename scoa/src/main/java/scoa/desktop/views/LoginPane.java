@@ -21,12 +21,15 @@ public class LoginPane {
     @FXML
     public void handleLogin () throws IOException {
         String role = loginCpfField.getText();
-        if (role.equals("admin")) {
+        if (role.equals("00000000000")) {
             AdminDashboardPane paneController = Router.<AdminDashboardPane>toView("views/adminDashboardPane.fxml");
             paneController.setUser(userId);
         }
-        if (role.equals("professor")) {
+        if (role.equals("11111111111")) {
             Router.toView("views/professorDashboardPane.fxml");
+        }if (role.equals("22222222222")) {
+            Router.toView("views/alunoDashboardPane.fxml");
         }
+
     }
 }

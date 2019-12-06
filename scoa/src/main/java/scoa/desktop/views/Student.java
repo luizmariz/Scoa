@@ -42,7 +42,7 @@ public class Student extends RecursiveTreeObject<Student> {
         return faltas;
     }
 
-    public void setFaltas(int faltas) {
+    public void setFaltas(Integer faltas) {
         this.faltas.set(faltas);
     }
 

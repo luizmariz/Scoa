@@ -2,49 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6776c23a-7514-4ca1-9ddb-5fc3c7ca7f8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/scoa/desktop/views/css/professorDashboardPane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/Scoa.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_jfoenix_jfoenix_9_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_kordamp_ikonli_ikonli_core_11_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_kordamp_ikonli_ikonli_fontawesome5_pack_11_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_kordamp_ikonli_ikonli_fontawesome_pack_11_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_kordamp_ikonli_ikonli_javafx_11_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_base_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_base_win_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_controls_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_controls_win_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_fxml_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_fxml_win_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_graphics_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_openjfx_javafx_graphics_win_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/AlunoDashboardPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/scoa/desktop/views/alunoDashboardPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoa.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/AdminDashboardPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/AdminDashboardPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/LoginPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/LoginPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/ProfessorDashboardPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/ProfessorDashboardPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/RegisterPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/AdminDashboardPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/scoa/desktop/views/professorDashboardPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scoa/desktop/views/professorDashboardPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/scoa/desktop/views/registerPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scoa/desktop/views/adminDashboardPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scoa/desktop/views/professorDashboardPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scoa/desktop/views/professorDashboardPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scoa/desktop/views/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -58,7 +39,13 @@
   </component>
   <component name="ProjectId" id="1Trxyvw6yKL8EWr2YmSFdfYOE5c" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Gluon/SceneBuilder.lnk" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -67,15 +54,15 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -104,5 +91,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1286" height="148" key="GridCell.Tab.0.bottom" timestamp="1575637271731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="148" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575637271731" />
+    <state width="1286" height="148" key="GridCell.Tab.0.center" timestamp="1575637271731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="148" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575637271731" />
+    <state width="1286" height="148" key="GridCell.Tab.0.left" timestamp="1575637271731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="148" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575637271731" />
+    <state width="1286" height="148" key="GridCell.Tab.0.right" timestamp="1575637271731">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="148" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575637271731" />
+    <state x="339" y="164" key="run.anything.popup" timestamp="1575573104964">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="164" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1575573104964" />
   </component>
 </project>
